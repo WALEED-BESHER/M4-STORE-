@@ -1,0 +1,1375 @@
+/* ==================== RESET ==================== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==================== BODY LAYOUT ==================== */
+body {
+    
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "navbar navbar"
+        "sidebar main"
+        "sidebar footer";
+}
+
+/* ==================== FONT ==================== */
+@font-face{
+    font-family: "Aref Ruqaa";
+    src: url('../Aref_Ruqaa/ArefRuqaa-Bold.ttf');
+   }
+   @font-face {
+    font-family: "Readex Pro";
+    src: url('../Readex_Pro/static/ReadexPro-Medium.ttf');
+    font-weight: bold;
+}
+
+/* ==================== NAVBAR ==================== */
+nav{
+    top: 0;
+    position: sticky;
+    grid-area: navbar;
+    background-color: black;
+    color: red;
+    padding: 1em;
+    z-index: 998;
+}
+#logo{ /* logo*/
+    width: 1.5em;
+    max-height: 1.5em;
+}
+/* ========== LOGIN MENU ========== */
+#maincontainer { 
+    list-style: none;
+    background: black;
+    float: right;
+}
+#maincontainer #mainlists{ /* UL LI */
+    display: inline-block;
+    position: relative;
+}
+#maincontainer #mainlists #link{ /* UL LI A  */
+    display:block;
+    padding:10px 15px;
+    color:white;
+    text-decoration: none;
+    text-align:center;
+    font-size: 0.9em;
+}
+#maincontainer #mainlists .dropdown .fractionlist{/* UL LI ul li */
+    display:block;
+}
+#maincontainer #mainlists .dropdown{/* UL LI ul */
+    width: auto;
+    background:black;
+    position:absolute;
+    z-index:999;
+    display: none;
+    margin-left: -3.78em;
+   
+}
+#maincontainer #mainlists #link:hover{ /* UL LI a:hover */
+    color:red;
+    box-shadow: 0px 0px 5px rgb(206, 79, 79);
+    
+}
+#maincontainer #mainlists:hover .dropdown{ /* UL LI ul */
+    display:block;
+}
+
+#maincontainer #mainlists #link #con-noti #supp{
+    background-color:red;
+    color: white;
+}
+#userlog{ /* UL LI ul li a i*/
+    font-size: 10px;
+}
+
+
+
+/* ==================== SIDEBAR ==================== */
+aside{  
+    height: calc(100vh - 68.8px);
+    top: 68.8px ;
+    position: sticky;
+    align-self: start;
+    grid-area: sidebar;
+    background-color: black;
+    text-align: center;
+    color: red;
+    z-index: 997;
+}
+#menu{  /* اسم المنيو */
+    font-size: 2em;
+    padding: 0.5em;
+    box-shadow:  0px 0px 3px rgb(125, 80, 80);
+    font-family: "Aref Ruqaa", serif;
+    font-style: normal;
+    font-weight: bold;
+}
+#ul{ 
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#li{
+    position: relative;
+    display: inline-block;
+}
+.menu{ /* خواص المنيو */
+    color: white;
+    text-decoration: none;
+    font-family: "Aref Ruqaa", serif;
+    font-style: normal;
+    font-weight: bold;
+   
+}
+#ul .menu:hover{ 
+    color:red;
+}
+.list:hover{
+    box-shadow: 0px 0px 5px rgb(206, 79, 79);
+}
+
+
+
+/* ==================== MAIN SECTION ==================== */
+main{
+    grid-area: main;
+    background-color: #141d28;
+    color: red;
+}
+/* ===== Title Container ===== */
+.far{ 
+    display: flex; /* بدل block لتحقيق محاذاة justify/align */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20vh;
+    border: none;
+    outline: none;
+    margin-top: 2em;
+}
+/* ===== Main Page Title ===== */
+.far .pas{ /* title h1 */
+    margin-top: 1em;
+    color: white;
+    font-family: "Aref Ruqaa", serif;
+    font-style: normal;
+    font-weight: bold;
+}
+/* ===== Page Name ===== */
+#pub{ 
+    font-size: 2em;
+    margin-right: 0.3em;
+    font-family: "Aref Ruqaa", serif;
+    font-style: normal;
+    font-weight: bold;
+}
+/* ===== Product Container Grid ===== */
+.continer{/* index page layout start from here */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 1rem;
+  
+}
+
+
+
+/* ===== Each Product Box ===== */
+.mainbox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #204254;
+    min-height: 450px; /* زيادة الارتفاع */
+    margin: 1rem 0;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+/* ===== Product Image ===== */
+.continer .mainbox .pictures{
+    width: 100%;
+    height: 250px; /* زيادة ارتفاع الصورة */
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+/* ===== Product Title ===== */
+.continer .mainbox .title{
+    font-size: 1.8em;
+    font-family: "Aref Ruqaa", serif;
+    font-weight: bold;
+    color: white;
+    padding: 12px 16px 6px;
+}
+/* ===== Product Price ===== */
+.continer .mainbox .price{
+    font-size: 1.4em;
+    font-family: "Aref Ruqaa", serif;
+    font-weight: bold;
+    color: #f8f8f8;
+    padding: 0 16px 10px;
+}
+/* ===== Order Button ===== */
+.continer .mainbox .order{
+    margin-top: auto;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    padding: 14px 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-top: 1px solid #444;
+}
+.continer .mainbox .order:hover{
+    text-decoration: underline;
+    color: red;
+}
+
+
+/* ==================== تحذير تسجيل الدخول ==================== */
+.login-alert {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff4444;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    font-weight: bold;
+    text-align: center;
+    animation: fadeIn 0.5s ease-out;
+    width: 80%;
+    max-width: 500px;
+}
+/* تحريك التنبيه للدخول */
+@keyframes fadeIn {
+    from { opacity: 0; top: 0; }
+    to { opacity: 1; top: 20px; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+
+/* ==================== صفحة تفاصيل المنتج ==================== */
+.product-details-container {/* product details page start here */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-images {
+    flex: 1;
+    min-width: 300px;
+}
+
+.product-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.main-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+/* سعر المنتج */
+.price-section {
+    margin: 20px 0;
+}
+
+.newprice {
+    font-size: 24px;
+    color: #d9534f;
+    font-weight: bold;
+}
+
+.old-price {
+    font-size: 18px;
+    color: #999;
+    text-decoration: line-through;
+    margin-right: 10px;
+}
+/* وصف المنتج والمواصفات */
+.description, .specs {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+/* تحسين التنسيق */
+.specs #product-det-h3,
+.specs .product-det-li .product-det-li-strong,
+.description #product-det-h3,
+.product-info #product-det-h1{
+    font-family: "Aref Ruqaa", serif;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.specs #product-det-ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+.specs #product-det-li{
+    margin-bottom: 8px;
+    font-family: "Aref Ruqaa", serif;
+    font-style: normal;
+    font-weight: bold;
+}
+
+/* ==================== أزرار الإجراءات ==================== */
+.actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.add-to-cart, .back-to-products {
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.add-to-cart {
+    background: #d9534f;
+    color: white;
+}
+
+.add-to-cart:hover {
+    background: #c9302c;
+}
+
+.back-to-products {
+    background: #f0f0f0;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.back-to-products:hover {
+    background: #e0e0e0;
+}
+
+
+
+
+
+
+/* ==================== صفحة "من نحن" ==================== */
+.container_of_about_us{ /* About us page start here */
+    width: 100%;
+    height: auto;
+}
+.container_of_about_us #about-tite{
+    color:red;
+    font-size: 2.5em;
+    padding: 0.1em;
+    padding-right: 0.7em;
+    font-family: "Aref Ruqaa", serif;
+    font-style: normal;
+    font-weight: bold;
+}
+.container_of_about_us #about-text{
+    font-size: 1.3em;
+   padding-top: 0em;
+   padding-bottom: 1em;
+   padding-left: 0.5em;
+   padding-right: 0.5em;
+    color: white;
+    font-family: "Readex Pro", serif;
+    font-style: normal;
+
+}
+
+
+/* ==================== صفحة "اتصل بنا" ==================== */
+.contact{ /* contact us page start here */
+    min-height: 100vh;
+    background-color: transparent;
+    padding:50px;
+    text-align: center;
+}
+#main-contactus{
+    background: url("../photos/LOGO.png")no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.container_of_contactus{
+    max-width: 40em;
+    margin:0 auto;
+}
+.container_of_contactus #contact-id{
+    font-size: 36px;
+    margin-bottom: 40px;
+    color:white;
+}
+.contact-wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+}
+.contact-form{
+    text-align: left;
+}
+#contact-id1{
+    font-size: 24px;
+    margin-bottom: 20px;
+    color:white;
+}
+.form-group{
+    margin-bottom: 20px;
+}
+#contact-name-input,#contact-email-input,#contact-massage-text{
+    width:100%;
+    padding:12px;
+    border-radius: 8px;
+    border:none;
+    background-color: #f8f9fa;
+    color:#333;
+}
+#contact-name-input:focus,#contact-email-input:focus,#contact-massage-text:focus{
+    outline:none;
+   box-shadow: 0 0 8px #bbb;
+}
+#contact-submet{
+    display: inline-block;
+    padding:12px 24px;
+    background-color: #4caf50;
+    color:#fff;
+    border:none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+#contact-submet:hover{
+    background-color: #3d553e;
+}
+
+/* معلومات الاتصال */
+.contact-info{
+    text-align: left;
+}
+.contact-info #contact-para #contact-icon{
+    margin-bottom: 10px;
+    margin-left: 3px;
+  color:white;
+}
+.contact-info #contact-para #contact-icon:hover{
+  color: red;
+  text-decoration: underline;
+}
+
+
+/* ==================== صفحة تسجيل الدخول ==================== */
+#container-of-login{ /* login page start from her */
+    width: 100%;
+    height: 43em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+    background: url('../photos/bet.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.wra{
+    width: 30em;
+    background: transparent;
+    color: #fff;
+}
+.wra #title-of-login{
+    font-size: 2.5em;
+    text-align: center;
+    color: red;
+    font-weight: bold; 
+}
+.wra .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+.input-box .login-inputs{
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid red;
+    border-radius: 40px;
+    font-size: 1em;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+}
+.input-box .login-inputs::placeholder {
+    color: red;
+}
+
+.input-box #login-icons {
+    position: absolute;
+    right: 2%;
+    top: 0;
+    font-size: 1.2em;
+}
+.wra .remember-forget {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    margin: -15px 0 15px;
+}
+.remember-forget #login-label:hover{
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.remember-forget #login-label #login-label-inputs{
+    accent-color: #fff;
+    margin-right: 3px;
+    cursor: pointer;
+}
+.remember-forget #login-remember-link {
+    color: #fff;
+    text-decoration: none;
+}
+.remember-forget #login-remember-link:hover{
+    color: red;
+    text-decoration: underline;
+}
+.wra .btn {
+    width: 98%;
+    height: 3em;
+    background: red;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #333;
+    font-weight: bold;
+}
+.wra .btn:hover{
+    box-shadow: 0 0 10px rgba(239, 4, 4, 0.745);
+}
+.wra .registor-link {
+    font-size: 1em;
+    text-align: center;
+   margin: 2em 0 1.5em;
+}
+.registor-link #login-para #login-registor-link{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.registor-link #login-para #login-registor-link:hover{
+    text-decoration: underline;
+    color: red;
+}
+
+/* ==================== صفحة التسجيل ==================== */
+#container-of-signup{ /* signup page start her */
+    width: 100%;
+    height: 70em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    background: url('../photos/bet.jpg') no-repeat center;
+    background-size: cover;
+}
+#container-of-signup .wraping{
+    width: 30em;
+    background: transparent;
+    color: #fff;
+}
+.wraping #title-of-signup{
+    font-size: 2.5em;
+    text-align: center;
+    color: red;
+    font-weight: bold; 
+}
+.wraping .input-box-signup{
+    display: flex;
+    width: 100%;
+    height: 55px;
+    margin: 30px 0;
+}
+.input-box-signup .signup-inputs{
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid red;
+    border-radius: 40px;
+    font-size: 1em;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+}
+.input-box-signup .signup-inputs::placeholder{
+    color: red;
+}
+.wraping .btnn{
+    width: 98%;
+    height: 3em;
+    background: red;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #333;
+    font-weight: bold;
+}
+.wraping .btnn:hover{
+    box-shadow: 0 0 10px rgba(239, 4, 4, 0.745);
+}
+.wraping .registor-linkos{
+    font-size: 1em;
+    text-align: center;
+   margin: 2em 0 1.5em;
+}
+.registor-linkos #signup-para #signup-registor-link{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.registor-linkos #signup-para #signup-registor-link:hover{
+    text-decoration: underline;
+    color: red;
+}
+
+
+
+
+
+/* ==================== صفحة الملف الشخصي ==================== */
+.container-of-profile{ /* profile page start here */
+    width: 100%;
+    height: 50em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('../photos/bet.jpg') no-repeat;
+    background-size: cover;
+}
+.container-of-profile #box-of-profile{
+    width: 40em;
+    background: transparent;
+    border-radius: 30px;
+    padding: 30px 40px;
+}
+.container-of-profile #box-of-profile #profile-h1{
+   text-align: center;
+}
+.container-of-profile #box-of-profile #profile-h1 #profile-icon{
+    font-size: 3em;
+    color: red;
+}
+
+.profile-output-boxs{
+    display: flex;
+   width: 100%;
+   height: 2em;
+   margin: 1em 0;
+}
+#proff{
+    width: 100%;
+   height: 100%;
+   background: transparent;
+   border: none;
+   outline: none;
+   font-size: 1em;
+   color: red;
+   padding: 20px 45px 20px 20px;
+   text-align: left;
+   font-family: "Aref Ruqaa", serif;
+    font-style: normal;
+    font-weight: bold;
+}
+#prof{
+    width: 100%;
+   height: 100%;
+   background: transparent;
+   border: none;
+   outline: none;
+   font-size: 1em;
+   color: red;
+   padding: 20px 45px 20px 20px;
+   text-align: center;
+   font-family: "Aref Ruqaa", serif;
+    font-style: normal;
+    font-weight: bold;
+}
+#profile-to-edit{
+    width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: white;
+  padding: 20px 0px 0px 0px;
+  text-align: center;
+  text-decoration:none;
+  font-family: "Aref Ruqaa", serif;
+    font-style: normal;
+    font-weight: bold;
+}
+#profile-to-edit:hover{
+    text-decoration:underline;
+    color:red;
+}
+
+
+
+
+/* ==================== صفحة السلة ==================== */
+.container-cart{  /* cart page start here */
+    width: 100%;
+    height: 100vh;
+}
+.container-cart #cart-h1{
+    margin-top: 1.5em;
+    color: red;
+    font-family: "Aref Ruqaa", serif;
+    font-style: normal;
+    font-weight: bold;
+}
+.cart-table-th{
+    background-color: black;
+    text-align: center;
+    padding: 0.5em 0em;
+    font-family: "Aref Ruqaa", serif;
+    font-style: normal;
+    font-weight: bold;
+}
+.cart-items{
+    padding: 0.3em 0em;
+}
+.cart-total{
+    background-color: black;
+    text-align: center;
+    padding: 0.5em 0em;
+    font-family: "Aref Ruqaa", serif;
+    font-style: normal;
+    font-weight: bold;
+}
+.cart-done{
+    width: 15em;
+    height:4em ;
+    background-color: black;
+    border-radius: 30px;
+}
+.cart-done:hover{
+    background-color: red;
+}
+.cart-done-button{
+    font-size:1.5em;
+    padding: 20px 3em;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
+    text-decoration: none;
+}
+.cart-done-button:hover{
+    text-decoration: underline;
+    color: black;
+}
+#empty-cart{
+    text-align: center;
+    font-size: 2em;
+    padding: 1em;
+    margin-top: 2em;
+    font-family: "Aref Ruqaa", serif;
+    font-style: normal;
+    font-weight: bold;
+}
+.cart-bottons{
+    background-color:black;
+    color: red;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.cart-bottons:hover {
+    background-color:red;
+    color: black;
+}
+
+
+
+/* ==================== صفحة التاكيد ==================== */
+.container-cart1{  /* checkout page start here */
+    width: 100%;
+    height: auto;
+}
+.container-cart1 #cart-h1{
+    margin-top: 1.5em;
+    color: red;
+    font-family: "Aref Ruqaa", serif;
+    font-style: normal;
+    font-weight: bold;
+}
+#checkout-h3{ 
+    text-align:center;
+    padding-top:1em;
+    padding-bottom:1em;
+    font-size:2em ;
+    color: red;
+    font-family: "Aref Ruqaa", serif;
+    font-style: normal;
+    font-weight: bold;
+}
+#checkout-form{
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: black;
+    margin-bottom: 2em;
+}
+.checkout-label{
+    font-weight: bold;
+     display:block;
+     margin-bottom: 5px;
+}
+.chechout-sel{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px; 
+    border: 1px solid red; 
+    border-radius: 5px;
+}
+.checkout-inputs{
+    width: 97%;
+    padding: 10px; 
+    margin-bottom: 10px; 
+    border: 1px solid red; 
+    border-radius: 5px;
+    color: red;
+    background-color: transparent;
+}
+.checkout-button{
+    background-color: red; 
+    color: white;
+    border: none; 
+    cursor: pointer; 
+    width: 100%;
+    padding: 10px; 
+    margin-bottom: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+}
+.checkout-button:hover{
+    box-shadow: 0 0 5px rgb(211, 97, 97);
+    text-decoration: underline;
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+/* ==================== صفحة الدفع ==================== */
+.payment-form {/* payment */
+    text-align: right;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid red;
+    border-radius: 8px;
+    background-color: black;
+}
+
+.payment-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.payment-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.payment-form input, .payment-form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid red;
+    border-radius: 4px;
+    background-color: black;
+    color: red;
+}
+.payment-form input::placeholder, .payment-form select::placeholder{
+    color: red;
+}
+.payment-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.payment-form button:hover {
+    background-color: #218838;
+}
+
+
+
+/* ==================== صفحة الإشعارات ==================== */
+.container-of-notif {/* natification page start here */
+    width: 94%;
+    height: auto;
+    background-color: black;
+    justify-self: center;
+    margin: 2% 3% 1% 3%;
+    border-radius: 50px;
+    padding: 1em; /* يمكن إضافة padding لتقليل التصاق النص بالحواف */
+    position: relative;
+}
+
+.container-of-notif #notification-massage {
+    font-size: 2.5em;
+    padding: 0.4em;
+    color: red;
+    word-wrap: break-word; /* يسمح بتقسيم الكلمات إلى أسطر جديدة */
+    white-space: normal;  /* يسمح بظهور النص بشكل طبيعي */
+}
+
+.container-of-notif #notification-create {
+    font-size: 0.7em;
+    padding: 0.5em 2.7em;
+    color: #9c8e8e;
+    position: absolute;
+    right: 0;
+}
+
+.delfromnotif
+    {
+        padding: 7px;
+        margin: 0% 2%;
+        border-radius: 10px;
+        color: black;
+        text-decoration: none;
+        background-color: red;
+    }
+.delfromnotif:hover {
+    background-color: darkred; /* إضافة تأثير عند التمرير */
+}
+
+
+
+
+
+
+
+/* ==================== الفوتر ==================== */
+/* fotter */
+footer{
+    grid-area: footer;
+    background-color:black;
+    color: white;
+    padding-top: 1em;
+
+}
+.cont{
+    width: 100%;
+    margin:auto;
+    display:flex;
+    justify-content:center;
+}
+.footer_cont{
+    margin-left: 2em;
+}
+.cont .footer_cont #fotterh3{
+    font-size:2em;
+    text-align:center;
+}
+.cont .list2 {
+    text-align:center;
+    list-style: none;
+    padding:1em;
+    display: inline-block;
+}
+.cont .list2 #frlist{
+    text-align:center;
+}
+.cont .list2 #frlist #emaillink ,#phonelink ,#links{
+    color: white;
+    text-decoration: none;
+}
+.cont .list2 #frlist #emaillink:hover ,#phonelink:hover ,#maps:hover ,#links:hover{
+    color: red;
+}
+.bottom-bar {
+    background: white;
+    text-align: center;
+    padding: 0.5em 0;
+   
+}
+.bottom-bar p{
+    color: #343434;
+    margin: 0;
+    font-size: 1em;
+    padding: 0.3em;
+}
+.bottom-bar span {
+    color: red;
+    font-weight: bold;
+}
+
+
+
+
+/* تحسين العرض على الأجهزة الصغيرة */
+@media screen and (max-width: 768px) {
+    .cont {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer_cont {
+        margin-left: 0;
+    }
+    .bottom-bar {
+        padding: 1em 0;
+    }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+    .continer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+     
+}
+
+
+@media(max-width:621px){
+
+    .continer {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media(max-width:768px){
+    /* ==================== General Styles ==================== */
+    body {
+        grid-template-columns: 0fr;
+    }
+    aside{ 
+        position: fixed;
+        width: 200px;
+       display: none;
+       text-align: center;
+       height: calc(100vh - 60px);
+       top: 60px ;
+    }
+    .show{
+        display: block;
+    }
+    #maincontainer #mainlists #link{/* UL LI a */
+        display:block;
+        padding:0.2em 0.5em;
+        color:white;
+        text-decoration: none;
+        text-align:center;
+        font-size: 0.9em;
+    }
+    .mainbox{
+       display: flex;
+        flex-direction: column;
+        width: 98%;
+        height: auto;
+        background-color: #204254;
+        margin: 2%;
+        position: relative;
+    }
+     
+    .continer .mainbox .title{
+        position: absolute;
+        width: 97%;
+       height: 31%;
+        bottom: 15%;
+        right: 2%;
+        font-size: 1em;
+        font-family: "Aref Ruqaa", serif;
+        font-style: normal;
+        font-weight: bold;
+    }
+    .continer .mainbox .price{
+        position: absolute; 
+        width: 95%;
+        bottom: 8%; 
+        right: 2%; 
+        color: black; 
+        font-size: 1.3em;
+        font-family: "Aref Ruqaa", serif;
+        font-style: normal;
+        font-weight: bold;
+    }
+    .continer .mainbox .order{
+      margin-top: auto;
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        padding: 13px 0;
+        font-size: 1.1em;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        border-top: 1px solid #444;
+    }
+    .far{
+        display: block;
+        width: 100%;
+        height: 15vh;
+        justify-content: center;
+       align-items: center;
+       margin-top: 1em;
+       border: none;
+      outline: none;
+      padding: 0;
+      margin: 0;
+    }
+    #pub{
+        font-size: 1.5em;
+        margin-right: 0.3em;
+        font-family: "Aref Ruqaa", serif;
+        font-style: normal;
+        font-weight: bold;
+    }
+     /* ==================== About Us Page ==================== */
+    .container_of_about_us #about-tite{ 
+        color:red;
+        font-size: 1.5em;
+        padding: 0.5em;
+        font-family: "Aref Ruqaa", serif;
+        font-style: normal;
+        font-weight: bold;
+    }
+    /* ==================== Contact Us Page ==================== */
+    .container_of_contactus{ 
+        padding:20px;  
+    }
+    .contact-wrapper{
+        grid-template-columns:1fr ;
+     } 
+     /* ==================== Login Page ==================== */
+     #container-of-login{ 
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 50vh;
+        background: url('../photos/bet.jpg') no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .wra{
+        width: 24em;
+        background: transparent;
+        color: #fff;
+    }
+    .wra .btn {
+        width: 98%;
+        height: 3em;
+        background: red;
+        border: none;
+        outline: none;
+        border-radius: 40px;
+        cursor: pointer;
+        font-size: 1em;
+        color: #333;
+        font-weight: bold;
+        margin: 0% 1%;
+    }
+    .input-box .login-inputs {
+    width: 96%;
+    margin: 2px 4px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid red;
+    border-radius: 40px;
+    font-size: 1em;
+    color: #fff;
+    padding: 18px;
+  }
+  .remember-forget #login-remember-link {
+    color: #fff;
+    text-decoration: none;
+    margin: 0px 25px;
+    }
+    .wra .remember-forget {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    margin: -15px 10px 15px;
+    }
+
+    /* ==================== Signup Page ==================== */
+    #container-of-signup{ 
+        width: 100%;
+        height: 71em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 50vh;
+        background: url('../photos/bet.jpg') no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    #container-of-signup .wraping{
+        width: 25em;
+        background: transparent;
+        color: #fff;
+    }
+    .wraping .btnn{
+          width: 98%;
+        height: 3em;
+        background: red;
+        border: none;
+        outline: none;
+        border-radius: 40px;
+        cursor: pointer;
+        font-size: 1em;
+        color: #333;
+        font-weight: bold;
+        margin: 0% 1%;
+    }
+    .input-box-signup .signup-inputs {
+    width: 98%;
+    margin: 0% 1%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid red;
+    border-radius: 40px;
+    font-size: 1em;
+    color: #fff;
+    padding: 18px;
+    }
+
+
+    /* ==================== Profile Page ==================== */
+    
+     .container-of-profile{ 
+        width: 100%;
+        height: 66em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: url('../photos/bet.jpg') no-repeat;
+        background-size: cover;
+    }
+    .container-of-profile #box-of-profile{ 
+        width: 35em;
+        background: transparent;
+        border-radius: 30px;
+        padding: 30px 40px;
+    }
+    .container-of-profile #box-of-profile #profile-h1{
+        text-align: center;
+     }
+     .container-of-profile #box-of-profile #profile-h1 #profile-icon{
+        font-size: 2em;
+        color: red;
+     }
+     
+    #proff, #prof {
+        width: 100%;
+       height: 100%;
+       background: transparent;
+       border: none;
+       outline: none;
+       font-size: 1em;
+       color: red;
+       padding: 20px 45px 20px 10px;
+       text-align: left;
+       font-family: "Aref Ruqaa", serif;
+       font-style: normal;
+       font-weight: bold;
+    }
+    #profile-to-edit{
+         width: 100%;
+       height: 100%;
+       background: transparent;
+       border: none;
+       outline: none;
+       font-size: 0.7em;
+       color: white;
+       padding: 20px 0px 0px 0px;
+       text-align: center;
+       text-decoration:none;
+       cursor:pointer;
+    }
+    #profile-to-edit:hover{
+        text-decoration:underline;
+        color:red;
+    }
+
+    /* ==================== Product Details ==================== */
+    .product-details-container { 
+        flex-direction: column;
+    }
+    
+    .actions {
+        flex-direction: column;
+    }
+    
+    /* ==================== Notification Page ==================== */
+    .container-of-notif #notification-massage {/* natification page start here */
+        font-size: 1.5em;
+        padding: 0.4em;
+        color: red;
+        word-wrap: break-word; /* يسمح بتقسيم الكلمات إلى أسطر جديدة */
+        white-space: normal;  /* يسمح بظهور النص بشكل طبيعي */
+    }
+    .delfromnotif{
+        padding: 4px;
+        margin: 0% 2%;
+        border-radius: 10px;
+        color: black;
+        text-decoration: none;
+        background-color: red;
+    }
+    
+}

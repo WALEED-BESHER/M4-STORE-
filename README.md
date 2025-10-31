@@ -61,6 +61,10 @@ Name: Waleed Besher
 📧 Email: BETOSAD771@GMAIL.COM
 🌍 GitHub: https://github.com/WALEED-BESHER
 
+📜 License
+
+This project is licensed under the MIT License — see the LICENSE file for details.
+
 
 ---
 🇸🇦 الوصف بالعربية
